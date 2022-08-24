@@ -1,0 +1,22 @@
+1.  Open repository in github
+
+2.  First Terminal:
+    #   git init 
+    #   git add .
+    #   git commit -m "first commit"
+    #   git branch -M main
+    #   git remote add origin https://github.com/rana1506/NewRottenPotatoes.git
+    #   git push -u origin main 
+    #   - 'origin':name of remote repo 
+        - 'main': name of branch
+        - git command works on current remote repo and branch
+
+3.  Second Terminal:
+    #   git init  
+    #   git remote add origin https://github.com/rana1506/NewRottenPotatoes.git
+    #   git pull -u origin main
+
+4.  First Terminal:
+    #   git init  
+    #   git remote add origin https://github.com/rana1506/NewRottenPotatoes.git
+    #   git pull -u origin main
