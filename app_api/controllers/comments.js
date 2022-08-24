@@ -8,7 +8,7 @@ module.exports = (app) => {
     app.post('/reviews/comments', (req, res) => {
       Comment.create(req.body).then((comment) => {
         console.log(comment)
-        res.redirect(`/reviews/${comment.reviewId}`);
+        //res.redirect(`/reviews/${comment.reviewId}`);
       }).catch((err) => {
         console.log(err.message);
       });
@@ -18,7 +18,7 @@ module.exports = (app) => {
     app.delete('/reviews/comments/:id', function (req, res) {
       console.log("DELETE comment")
       Comment.findByIdAndRemove(req.params.id).lean().then((comment) => {
-        res.redirect(`/reviews/${comment.reviewId}`);
+        //res.redirect(`/reviews/${comment.reviewId}`);
       }).catch((err) => {
         console.log(err.message);
       })
