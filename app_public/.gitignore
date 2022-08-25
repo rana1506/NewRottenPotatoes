@@ -8,6 +8,7 @@ tsconfig.spec.json
 readme.md
 .editorconfig
 .browserslistrc
+.angular
 
 
 # compiled output
