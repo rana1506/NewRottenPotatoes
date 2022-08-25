@@ -6,7 +6,7 @@ auth=require('../middleware/isLoggedin')
 module.exports = function(app) {
 
   // INDEX
-  app.get('/reviews', (req, res) => {
+  app.get('/api/reviews', (req, res) => {
     //const currentUser = req.user;
 
     Review.find().lean().populate('author')
@@ -32,7 +32,7 @@ module.exports = function(app) {
 
 
   // CREATE
-  app.post('/reviews', auth, (req, res) => {
+  app.post('/api/reviews', auth, (req, res) => {
       const userId = req.user._id;
       const review = new Review(req.body);
       review.author = userId;
@@ -52,7 +52,7 @@ module.exports = function(app) {
   })
 
   // SHOW
-  app.get('/reviews/:id', (req, res) => {
+  app.get('/api/reviews/:id', (req, res) => {
     //const currentUser = req.user;
     Review.findById(req.params.id).lean().populate('comments').populate('author')
       .then((review) => {
@@ -76,7 +76,7 @@ module.exports = function(app) {
 
 
   // UPDATE
-  app.put('/reviews/:id', (req, res) => {
+  app.put('/api/reviews/:id', (req, res) => {
     Review.findByIdAndUpdate(req.params.id, req.body).lean()
       .then(review => {
         res.redirect(`/reviews/${review._id}`)
@@ -88,7 +88,7 @@ module.exports = function(app) {
   })
 
   // DELETE
-  app.delete('/reviews/:id', function (req, res) {
+  app.delete('/api/reviews/:id', function (req, res) {
     console.log("DELETE review")
     Review.findByIdAndRemove(req.params.id).lean().then((review) => {
       res
