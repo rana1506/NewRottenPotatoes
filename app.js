@@ -21,12 +21,18 @@ mongoose.connect('mongodb://localhost/rotten-potatoes', { useNewUrlParser: true 
 const checkAuth = require('./app_api/middleware/checkAuth');
 app.use(checkAuth);
 
+app.use('/api', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  next();
+});
+
 
 //HOME
-app.get('/', (req, res) => {
-    const currentUser = req.user;
-    res.render('home',{currentUser});
-  });
+//app.get('/', (req, res) => {
+//    const currentUser = req.user;
+//    res.render('home',{currentUser});
+//  });
   
 const reviews = require('./app_api/controllers/reviews')(app);
 const comments = require('./app_api/controllers/comments')(app);
