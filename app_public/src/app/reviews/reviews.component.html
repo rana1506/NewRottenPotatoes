@@ -1,4 +1,8 @@
 <p>reviews works!</p>
 <div class="card" *ngFor="let review of reviews">
-  <p>{{review.author.toString()}}</p>
+  {{review.title}}:
+  <div  *ngFor="let comment of review.comments">
+    123
+  </div>
+  {{review.author.username}}
 </div>

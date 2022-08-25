@@ -1,7 +1,6 @@
 export class Comment {
     title: String=''
-    description: String=''
-    movieTitle: String=''
-    comments: String=''
+    content: String=''
+    reviewId: String=''
     author: String=''
   }
