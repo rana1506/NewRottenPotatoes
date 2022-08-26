@@ -9,13 +9,15 @@ import { FrameworkComponent } from './framework/framework.component';
 
 import { ReviewDataService } from './review-data.service';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { ShowComponent } from './show/show.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FrameworkComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    ShowComponent
   ],
   imports: [
     BrowserModule,

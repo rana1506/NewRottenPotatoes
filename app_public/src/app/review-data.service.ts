@@ -1,10 +1,12 @@
+import {Observable} from 'rxjs';
+import { map } from "rxjs/operators";
+
 import {Review} from './classes/review'
 import {Comment} from './classes/comment'
 
 import { Injectable, OnInit } from '@angular/core';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { HttpClient,  HttpHeaders  } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +25,21 @@ export class ReviewDataService {
       .get(url)
       .toPromise()
       .then(response => response as Review[])
+      .catch(this.handleError);
+  }
+
+  /*getList() : Observable<any[]>{
+    const url: string = `${this.apiBaseUrl}/reviews`;
+    return this.http
+      .get<any[]>(url).pipe(map(response  => response))
+
+  }*/
+  public geReviewById(reviewId: string): Promise<Review> {
+    const url: string = `${this.apiBaseUrl}/reviews/${reviewId}`;
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(response => response as Review)
       .catch(this.handleError);
   }
 
